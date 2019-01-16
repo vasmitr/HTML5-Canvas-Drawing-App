@@ -1,27 +1,27 @@
-const c = document.getElementById('canvas');
+const c = document.getElementById('canvas') as HTMLCanvasElement;
 const context = c.getContext('2d');
 
-function fillRegion(x, y, sizes=[0, 0], rgba=[0,0,0,0]) {
-    const imageData = context.getImageData(x, y, ...sizes);
-    const { data } = imageData;
-    const numPixels = data.length / 4;
+// function fillRegion(x, y, width, height, rgba=[0,0,0,0]) {
+//     const imageData = context.getImageData(x, y, width, height);
+//     const { data } = imageData;
+//     const numPixels = data.length / 4;
+//
+//     for (let i = 0; i < numPixels; i++) {
+//         // red
+//         data[i * 4] = rgba[0];
+//         // green
+//         data[i * 4 + 1] = rgba[1];
+//         // blue
+//         data[i * 4 + 2] = rgba[2];
+//         // alfa
+//         data[i * 4 + 3] = rgba[3];
+//     }
+//
+//     context.putImageData(imageData, x, y);
 
-    for (let i = 0; i < numPixels; i++) {
-        // red
-        data[i * 4] = rgba[0];
-        // green
-        data[i * 4 + 1] = rgba[1];
-        // blue
-        data[i * 4 + 2] = rgba[2];
-        // alfa
-        data[i * 4 + 3] = rgba[3];
-    }
+// }
 
-    context.putImageData(imageData, x, y);
-
-}
-
-function mouseMoveHandler(event) {
+function mouseMoveHandler(event: MouseEvent) {
     const x = event.clientX;
     const y = event.clientY;
     requestAnimationFrame(() => {
@@ -30,11 +30,11 @@ function mouseMoveHandler(event) {
     });
 }
 
-function mouseUpHandler(event) {
+function mouseUpHandler() {
     c.removeEventListener('mousemove', mouseMoveHandler, false);
 }
 
-function mouseDownHandler(event) {
+function mouseDownHandler(event: MouseEvent) {
     c.addEventListener('mousemove', mouseMoveHandler, false);
     const x = event.clientX;
     const y = event.clientY;
