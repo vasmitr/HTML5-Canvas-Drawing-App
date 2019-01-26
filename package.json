@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --config configs/webpack.config.js --watch",
     "build": "webpack --config configs/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +20,9 @@
   },
   "homepage": "https://github.com/vasmitr/HTML5-Canvas-Drawing-App#readme",
   "devDependencies": {
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.2",
     "webpack": "^4.28.4",

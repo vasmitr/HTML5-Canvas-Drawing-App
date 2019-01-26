@@ -1,6 +1,8 @@
 const c = document.getElementById('canvas') as HTMLCanvasElement;
 const context = c.getContext('2d');
 
+import './index.css';
+
 // function fillRegion(x, y, width, height, rgba=[0,0,0,0]) {
 //     const imageData = context.getImageData(x, y, width, height);
 //     const { data } = imageData;
