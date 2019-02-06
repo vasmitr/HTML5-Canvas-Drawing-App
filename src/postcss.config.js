@@ -1,8 +1,7 @@
 module.exports = {
-  "parser": "sugarss",
+  "syntax": 'postcss-scss',
   "map": false,
   "plugins": {
     "postcss-nested": {}
-  },
-  syntax: 'postcss-scss'
+  }
 };
