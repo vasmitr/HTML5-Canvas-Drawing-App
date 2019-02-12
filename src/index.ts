@@ -1,10 +1,8 @@
 import './index.pcss';
+import { Line } from "./utils/tools";
 
 const canvasElement = document.getElementById('canvas') as HTMLCanvasElement;
 const context = canvasElement.getContext('2d');
-
-import './index.pcss';
-import { Line } from "./utils/tools";
 
 // function fillRegion(x, y, width, height, rgba=[0,0,0,0]) {
 //     const imageData = context.getImageData(x, y, width, height);
