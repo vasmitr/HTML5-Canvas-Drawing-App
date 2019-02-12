@@ -1,9 +1,10 @@
 import './index.pcss';
 
-const c = document.getElementById('canvas') as HTMLCanvasElement;
-const context = c.getContext('2d');
+const canvasElement = document.getElementById('canvas') as HTMLCanvasElement;
+const context = canvasElement.getContext('2d');
 
 import './index.pcss';
+import { Line } from "./utils/tools";
 
 // function fillRegion(x, y, width, height, rgba=[0,0,0,0]) {
 //     const imageData = context.getImageData(x, y, width, height);
@@ -25,29 +26,6 @@ import './index.pcss';
 
 // }
 
-function mouseMoveHandler(event: MouseEvent) {
-    const x = event.clientX;
-    const y = event.clientY;
-    requestAnimationFrame(() => {
-        context.lineTo(x, y);
-        context.stroke();
-    });
-}
+const tool = new Line(canvasElement, context);
+tool.use();
 
-function mouseUpHandler() {
-    c.removeEventListener('mousemove', mouseMoveHandler, false);
-}
-
-function mouseDownHandler(event: MouseEvent) {
-    c.addEventListener('mousemove', mouseMoveHandler, false);
-    const x = event.clientX;
-    const y = event.clientY;
-
-    context.fillStyle = "#000000";
-    context.lineWidth = 3;
-    context.beginPath();
-    context.moveTo(x, y);
-}
-
-c.addEventListener('mouseup', mouseUpHandler);
-c.addEventListener('mousedown', mouseDownHandler);
